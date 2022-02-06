@@ -1,8 +1,9 @@
 // TODOs:
-// grab a list of all 6 letter words somewhere
-// -- big milestone, game is shippable
-// actually add images and style the UI a bit differently? turtle emoji in places?
-// replace main instructions with "you know how this works"
+// aesthetic
+//   actually add images and style the UI a bit differently? turtle emoji in places?
+//   replace main instructions with "you know how this works"
+// operational
+//   go through the 6 letter words cross referenced against a slurs list
 
 this.turtle = this.turtle || {},
 this.turtle.bundle = function(e) {
@@ -1868,7 +1869,7 @@ this.turtle.bundle = function(e) {
                                             switch (e) {
                                             case Ma:
                                                 a = function(e) {
-                                                    return e ? "🟧" : "🟩"
+                                                    return e ? "🟧" : "🐢"
                                                 }(i);
                                                 break;
                                             case Ia:
