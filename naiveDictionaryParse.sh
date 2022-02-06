@@ -1,5 +1,5 @@
 #!/bin/sh
-# read in text file which is  line delimited dictionary. output json dictionary string of format
+# read in text file which is line delimited dictionary. output js dictionary string of format
 # ["word1","word2",...,"wordEnd"]
 
 ### 
