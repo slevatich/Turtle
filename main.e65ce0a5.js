@@ -1,11 +1,7 @@
 // TODOs:
-// find the not enough letters check and change that
-// figure out how to get a 6th letter box in there and do 6 words
-// a utility to clear local storage?
-// -- big milestone
 // grab a list of all 6 letter words somewhere
-// -- big milestone, this works now
-// actually add images and style the UI a bit differently?
+// -- big milestone, game is shippable
+// actually add images and style the UI a bit differently? turtle emoji in places?
 // replace main instructions with "you know how this works"
 
 this.turtle = this.turtle || {},
