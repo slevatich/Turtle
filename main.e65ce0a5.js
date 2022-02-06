@@ -6,6 +6,7 @@
 // grab a list of all 6 letter words somewhere
 // -- big milestone, this works now
 // actually add images and style the UI a bit differently?
+// replace main instructions with "you know how this works"
 
 this.turtle = this.turtle || {},
 this.turtle.bundle = function(e) {
@@ -299,7 +300,7 @@ this.turtle.bundle = function(e) {
                         e.$row.appendChild(s)
                     }, s = 0; s < this._length; s++)
                     a(s);
-                this.$tiles = this.shadowRoot.querySelectorAll("game-tile"),
+                this.$tiles = this.shadowRoot.querySelectorAll("game-tile"), // query for all tagged "game-tiles"
                 this.addEventListener("animationend", (function(a) {
                     "Shake" === a.animationName && e.removeAttribute("invalid")
                 }))
@@ -1023,8 +1024,8 @@ this.turtle.bundle = function(e) {
         app_version: null === (Ea = window.turtle) || void 0 === Ea ? void 0 : Ea.hash,
         debug_mode: !1
     });
-    var La = ["turtl"],
-        Ta = ["test"],
+    var La = ["turtle"],
+        Ta = ["gggggg"],
     // todo these all need to be 6 letters lol. was the initial list a subset?
     // confirmed in testing that this needs to be a comprehensive list of all 6 letter words
     // found: there is a not enough letters check
@@ -1124,6 +1125,7 @@ this.turtle.bundle = function(e) {
     Ka.innerHTML = "\n  <style>\n  .toaster {\n    position: absolute;\n    top: 10%;\n    left: 50%;\n    transform: translate(-50%, 0);\n    pointer-events: none;\n    width: fit-content;\n  }\n  #game-toaster {\n    z-index: ".concat(1e3, ";\n  }\n  #system-toaster {\n    z-index: ").concat(4e3, ';\n  }\n\n  #game {\n    width: 100%;\n    max-width: var(--game-max-width);\n    margin: 0 auto;\n    height: 100%;\n    display: flex;\n    flex-direction: column;\n  }\n  header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    height: var(--header-height);\n    color: var(--color-tone-1);\n    border-bottom: 1px solid var(--color-tone-4);\n  }\n  header .title {\n    font-weight: 700;\n    font-size: 36px;\n    letter-spacing: 0.2rem;\n    text-transform: uppercase;\n    text-align: center;\n    position: absolute;\n    left: 0;\n    right: 0;\n    pointer-events: none;\n  }\n\n  @media (max-width: 360px) {\n    header .title {\n      font-size: 22px;\n      letter-spacing: 0.1rem;\n    }\n  }\n\n  #board-container {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-grow: 1;\n    overflow: hidden;\n  }\n  #board {\n    display: grid;\n    grid-template-rows: repeat(6, 1fr);\n    grid-gap: 5px;\n    padding:10px;\n    box-sizing: border-box;\n  }\n  button.icon {\n    background: none;\n    border: none;\n    cursor: pointer;\n    padding: 0 4px;\n  }\n\n  #debug-tools {\n    position: absolute;\n    bottom: 0;\n  }\n\n  </style>\n  <game-theme-manager>\n    <div id="game">\n      <header>\n        <div class="menu">\n          <button id="help-button" class="icon" aria-label="help">\n            <game-icon icon="help"></game-icon>\n          </button>\n        </div>\n        <div class="title">\n         TURTLE\n        </div>\n        <div class="menu">\n          <button id="statistics-button" class="icon" aria-label="statistics">\n            <game-icon icon="statistics"></game-icon>\n          </button>\n          <button id="settings-button" class="icon" aria-label="settings">\n            <game-icon icon="settings"></game-icon>\n          </button>\n        </div>\n      </header>\n        <div id="board-container">\n          <div id="board"></div>\n        </div>\n        <game-keyboard></game-keyboard>\n        <game-modal></game-modal>\n        <game-page></game-page>\n        <div class="toaster" id="game-toaster"></div>\n        <div class="toaster" id="system-toaster"></div>\n    </div>\n  </game-theme-manager>\n  <div id="debug-tools"></div>\n');
     var Qa = document.createElement("template");
     Qa.innerHTML = '\n<button id="reveal">reveal</button>\n<button id="shake">shake</button>\n<button id="bounce">bounce</button>\n<button id="toast">toast</button>\n<button id="modal">modal</button>\n';
+    var numberCells = 6;
     var Za = "IN_PROGRESS",
         es = "WIN",
         as = "FAIL",
@@ -1168,7 +1170,8 @@ this.turtle.bundle = function(e) {
             return o(t, [{
                 key: "evaluateRow",
                 value: function() {
-                    if (5 === this.tileIndex && !(this.rowIndex >= 6)) {
+                    console.log(this.boardState);
+                    if (numberCells === this.tileIndex && !(this.rowIndex >= 6)) {
                         var e,
                             a = this.$board.querySelectorAll("game-row")[this.rowIndex],
                             s = this.boardState[this.rowIndex];
@@ -1261,7 +1264,11 @@ this.turtle.bundle = function(e) {
             }, {
                 key: "addLetter",
                 value: function(e) {
-                    this.gameStatus === Za && (this.canInput && (this.tileIndex >= 5 || (this.boardState[this.rowIndex] += e, this.$board.querySelectorAll("game-row")[this.rowIndex].setAttribute("letters", this.boardState[this.rowIndex]), this.tileIndex += 1)))
+                    this.gameStatus === Za && 
+                    (this.canInput && 
+                        (this.tileIndex >= numberCells || 
+                            (this.boardState[this.rowIndex] += e, this.$board.querySelectorAll("game-row")[this.rowIndex].setAttribute("letters", this.boardState[this.rowIndex]), this.tileIndex += 1)
+                            ))
                 }
             }, {
                 key: "removeLetter",
@@ -1279,7 +1286,7 @@ this.turtle.bundle = function(e) {
                 key: "submitGuess",
                 value: function() {
                     if (this.gameStatus === Za && this.canInput) {
-                        if (5 !== this.tileIndex)
+                        if (numberCells !== this.tileIndex)
                             return this.$board.querySelectorAll("game-row")[this.rowIndex].setAttribute("invalid", ""), void this.addToast("Not enough letters");
                         this.evaluateRow()
                     }
@@ -1334,7 +1341,7 @@ this.turtle.bundle = function(e) {
                     for (var a = 0; a < 6; a++) {
                         var s = document.createElement("game-row");
                         s.setAttribute("letters", this.boardState[a]),
-                        s.setAttribute("length", 5),
+                        s.setAttribute("length", 6),
                         this.evaluations[a] && (s.evaluation = this.evaluations[a]),
                         this.$board.appendChild(s)
                     }
