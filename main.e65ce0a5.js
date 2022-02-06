@@ -1,6 +1,5 @@
-// TODOs:
-// operational
-//   go through the 6 letter words cross referenced against a slurs list
+// all source code stolen from wordle, please don't sue me new york times
+// word list from https://github.com/dwyl/english-words filtered for non-slurs based on wikipedia's "list of ethnic slurs" (not a super fun read, do not recommend)
 
 this.turtle = this.turtle || {},
 this.turtle.bundle = function(e) {
