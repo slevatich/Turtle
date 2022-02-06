@@ -1275,6 +1275,7 @@ this.turtle.bundle = function(e) {
                     }
                 }
             }, {
+                // AH HA
                 key: "submitGuess",
                 value: function() {
                     if (this.gameStatus === Za && this.canInput) {
