@@ -1,7 +1,4 @@
 // TODOs:
-// aesthetic
-//   actually add images and style the UI a bit differently? turtle emoji in places?
-//   replace main instructions with "you know how this works"
 // operational
 //   go through the 6 letter words cross referenced against a slurs list
 
@@ -1125,7 +1122,7 @@ this.turtle.bundle = function(e) {
     var Za = "IN_PROGRESS",
         es = "WIN",
         as = "FAIL",
-        ss = ["Genius", "Magnificent", "Impressive", "Splendid", "Great", "Phew"],
+        ss = ["Genius 🐢", "Magnificent 🐢", "Impressive 🐢", "Splendid 🐢", "Great 🐢", "Phew 🐢"],
         ts = function(e) {
             r(t, e);
             var a = h(t);
@@ -1944,7 +1941,7 @@ this.turtle.bundle = function(e) {
     }(c(HTMLElement));
     customElements.define("game-switch", Ps);
     var $s = document.createElement("template");
-    $s.innerHTML = '\n  <style>\n  .instructions {\n    font-size: 14px;\n    color: var(--color-tone-1)\n  }\n\n  .examples {\n    border-bottom: 1px solid var(--color-tone-4);\n    border-top: 1px solid var(--color-tone-4);\n  }\n\n  .example {\n    margin-top: 24px;\n    margin-bottom: 24px;\n  }\n\n  game-tile {\n    width: 40px;\n    height: 40px;\n  }\n\n  :host([page]) section {\n    padding: 16px;\n    padding-top: 0px;\n  }\n\n  </style>\n  <section>\n    <div class="instructions">\n      <p>Guess the <strong>TURTLE</strong> in 6 tries.</p>\n      <p>Each guess must be a valid 6 letter word. Hit the enter button to submit.</p>\n      <p>After each guess, the color of the tiles will change to show how close your guess was to the word.</p>\n      <div class="examples">\n        <p><strong>Examples</strong></p>\n        <div class="example">\n          <div class="row">\n            <game-tile letter="w" evaluation="correct" reveal></game-tile>\n            <game-tile letter="e"></game-tile>\n            <game-tile letter="a"></game-tile>\n            <game-tile letter="r"></game-tile>\n            <game-tile letter="y"></game-tile>\n          </div>\n          <p>The letter <strong>W</strong> is in the word and in the correct spot.</p>\n        </div>\n        <div class="example">\n          <div class="row">\n            <game-tile letter="p"></game-tile>\n            <game-tile letter="i" evaluation="present" reveal></game-tile>\n            <game-tile letter="l"></game-tile>\n            <game-tile letter="l"></game-tile>\n            <game-tile letter="s"></game-tile>\n          </div>\n          <p>The letter <strong>I</strong> is in the word but in the wrong spot.</p>\n        </div>\n        <div class="example">\n          <div class="row">\n            <game-tile letter="v"></game-tile>\n            <game-tile letter="a"></game-tile>\n            <game-tile letter="g"></game-tile>\n            <game-tile letter="u" evaluation="absent" reveal></game-tile>\n            <game-tile letter="e"></game-tile>\n          </div>\n          <p>The letter <strong>U</strong> is not in the word in any spot.</p>\n        </div>\n      </div>\n      <p><strong>A new TURTLE will be available each day!<strong></p>\n    </div>\n  </section>\n';
+    $s.innerHTML = '\n  <style>\n  .instructions {\n    font-size: 14px;\n    color: var(--color-tone-1)\n  }\n\n  .examples {\n    border-bottom: 1px solid var(--color-tone-4);\n    border-top: 1px solid var(--color-tone-4);\n  }\n\n  .example {\n    margin-top: 24px;\n    margin-bottom: 24px;\n  }\n\n  game-tile {\n    width: 40px;\n    height: 40px;\n  }\n\n  :host([page]) section {\n    padding: 16px;\n    padding-top: 0px;\n  }\n\n  </style>\n  <section>\n    <div class="instructions">\n      <p>Guess the <strong>TURTLE</strong> in 6 tries.</p>\n      <p>Each guess must be a valid 6 letter word. Hit the enter button to submit.</p>\n      <p>After each guess... well you know how it works!</p>\n      </div>\n      <p><strong>A new 🐢 will be available each day!<strong></p>\n    </div>\n  </section>\n';
     var Hs = function(e) {
         r(t, e);
         var a = h(t);
